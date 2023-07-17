@@ -10,7 +10,7 @@ const Manage = ()=>{
                 
                 <SideBar/>
                 <div>
-                    <h1>Hellow</h1>
+                    <h1>Manage</h1>
                 </div>
 
 

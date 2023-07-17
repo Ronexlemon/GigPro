@@ -10,7 +10,7 @@ const MyFreeLancers = ()=>{
                 
                 <SideBar/>
                 <div>
-                    <h1>Hellow</h1>
+                    <h1>MyFreelancer</h1>
                 </div>
 
 

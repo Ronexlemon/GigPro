@@ -10,7 +10,7 @@ const AddFreelancer = ()=>{
                 
                 <SideBar/>
                 <div>
-                    <h1>Hellow</h1>
+                    <h1>add</h1>
                 </div>
 
 

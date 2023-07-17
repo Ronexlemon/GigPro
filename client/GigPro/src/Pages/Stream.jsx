@@ -10,7 +10,7 @@ const Stream = ()=>{
                 
                 <SideBar/>
                 <div>
-                    <h1>Hellow</h1>
+                    <h1>Stream</h1>
                 </div>
 
 
