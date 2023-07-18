@@ -11,7 +11,7 @@ const Stream = ()=>{
                 
                 <SideBar/>
                 
-                    <div className="flex flex-col ml-20     overscroll-auto">
+                    <div className="flex flex-col ml-20     ">
                     <StreamCard/>
                     </div>
                    

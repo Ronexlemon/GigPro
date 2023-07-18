@@ -1,6 +1,7 @@
 import React from "react";
 import SideBar from "../components/sideBar";
 import HomeNavbar from "../components/HomeNavbar";
+import ManageCard from "../components/manageCard";
 const Manage = ()=>{
     return(
         <div className="min-h-full h-screen w-full bg-black fixed ">
@@ -9,8 +10,8 @@ const Manage = ()=>{
                 
                 
                 <SideBar/>
-                <div>
-                    <h1>Manage</h1>
+                <div className="flex flex-col ml-20     ">
+                    <ManageCard/>
                 </div>
 
 
