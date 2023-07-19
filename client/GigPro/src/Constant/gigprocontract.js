@@ -1,0 +1,1 @@
+export const GigProContract = "0xd6fE72801EDdAaB9a5fcc012B66FE59211b5F0A7";
