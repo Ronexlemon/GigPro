@@ -11,10 +11,10 @@ import Manage from './Pages/Manage'
 import { EthereumClient, w3mConnectors, w3mProvider } from '@web3modal/ethereum'
 import { Web3Modal } from '@web3modal/react'
 import { configureChains, createConfig, WagmiConfig } from 'wagmi'
-import { arbitrum, mainnet, polygon } from 'wagmi/chains'
+import { celoAlfajores } from 'wagmi/chains'
 
-const chains = [arbitrum, mainnet, polygon]
-const projectId = 'YOUR_PROJECT_ID'
+const chains = [celoAlfajores]
+const projectId = '7fc612a85a16989568e15f7c57429531'
 
 const { publicClient } = configureChains(chains, [w3mProvider({ projectId })])
 const wagmiConfig = createConfig({
@@ -28,6 +28,7 @@ function App() {
 
   return (
     <>
+    <WagmiConfig config={wagmiConfig}>
       <BrowserRouter>
       <Routes>
         <Route path='/' element={<Home/>}/>
@@ -38,6 +39,8 @@ function App() {
         <Route path='myFreelancer' element={<MyFreeLancers/>}/>
       </Routes>
       </BrowserRouter>
+      </WagmiConfig>
+      <Web3Modal projectId={projectId} ethereumClient={ethereumClient} />
     </>
   )
 }
