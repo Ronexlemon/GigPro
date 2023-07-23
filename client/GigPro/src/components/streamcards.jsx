@@ -7,7 +7,7 @@ import { useAccount } from 'wagmi'
 //superfluid
 //import { Framework } from "@superfluid-finance/js-sdk";
 import { Framework } from "@superfluid-finance/sdk-core";
-import { ethers } from "ethers";
+import { ethers,BigNumber } from "ethers";
 import { EthereumClient, w3mConnectors, w3mProvider } from '@web3modal/ethereum'
 let account;
 
@@ -57,20 +57,24 @@ const StreamCard = () => {
       
     
       console.log(celox);
+      const CELOX = "0x671425ae1f272bc6f79bec3ed5c4b00e9c628240";
+      console.log("signer address",await superSigner.getAddress());
     
       try {
         const createFlowOperation = celox.createFlow({
           sender: await superSigner.getAddress(),
           receiver: recipient,
-          flowRate: flowRate
+          flowRate: "1000000000"
+          
           // userData?: string
         });
     
          console.log(createFlowOperation);
         console.log("Creating your stream...");
     
-        const result = await createFlowOperation.exec(superSigner);
-        console.log(result);
+       // const result = await createFlowOperation.exec(superSigner);
+      //  console.log(result);
+      const res = await createFlowOperation.exec(superSigner);
     
         console.log(
           `Congrats - you've just created a money stream!
@@ -124,7 +128,7 @@ const StreamCard = () => {
           type="number"
           placeholder="Wei/seconds"
            value={weiPerSeconds}
-           onChange={(e)=>{setWeiPerSeconds(e.target.value)}}
+           onChange={(e)=>{setWeiPerSeconds(BigNumber.from(e.target.value))}}
            className="text-black text-center"
         />
         <div className="button-container flex gap-8">
