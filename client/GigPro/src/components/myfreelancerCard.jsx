@@ -45,6 +45,10 @@ const MyFreelancerCard = () => {
             
           </div>
           <div className="flex justify-between items-center text-black">
+          
+            <button className="inline-flex p-2 justify-center items-center w-100 rounded-full text-red-500">
+              End Contract
+            </button>
             
             
           </div>

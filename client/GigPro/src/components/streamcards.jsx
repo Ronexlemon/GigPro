@@ -54,6 +54,7 @@ const StreamCard = () => {
       console.log("the signer is",signer);
       console.log(await superSigner.getAddress());
       const celox = await sf.loadSuperToken("CELOx");
+      
     
       console.log(celox);
     
