@@ -13,7 +13,7 @@ let account;
 
 const StreamCard = () => {
   const [isOpen,setOpen] = useState(false);
-  const [timeInSeconds,setTimeInSeconds] = useState();
+  const [weiPerSeconds,setWeiPerSeconds] = useState();
   const { address, isConnecting, isDisconnected } = useAccount()
   const { data:myFreelancers, isError, isLoading } = useContractRead({
     address: GigProContract,
@@ -83,10 +83,11 @@ const StreamCard = () => {
         console.error(error);
       }
     }
-    const handleStartStream = async(freeLancerAddress,time_in_seconds)=>{
+    const handleStartStream = async(freeLancerAddress,wei_per_seconds)=>{
       try{
-        if(freeLancerAddress != undefined && time_in_seconds != undefined){
-          await createNewFlow(freeLancerAddress,time_in_seconds);
+        if(freeLancerAddress != undefined && wei_per_seconds != undefined){
+          
+          await createNewFlow(freeLancerAddress,wei_per_seconds);
           setOpen(false);
         }else{
           alert("please provide the time");
@@ -121,13 +122,13 @@ const StreamCard = () => {
         
         <input
           type="number"
-          placeholder="Time in seconds"
-           value={timeInSeconds}
-           onChange={(e)=>{setTimeInSeconds(e.target.value)}}
+          placeholder="Wei/seconds"
+           value={weiPerSeconds}
+           onChange={(e)=>{setWeiPerSeconds(e.target.value)}}
            className="text-black text-center"
         />
         <div className="button-container flex gap-8">
-          <button className="text-green-400" onClick={()=>{handleStartStream(employee.userAddress,timeInSeconds)}}>Start</button>
+          <button className="text-green-400" onClick={()=>{handleStartStream(employee.userAddress,weiPerSeconds)}}>Start</button>
           <button className="text-red-400" onClick={()=>{setOpen(false)}} >Cancel</button>
         </div>
       </div>: <button  onClick={()=>{setOpen(true)}} className="inline-flex p-2 justify-center items-center w-100 rounded-full text-green-400">
