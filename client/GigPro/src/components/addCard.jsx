@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useContractWrite } from "wagmi";
 import { GigProContract } from "../Constant/gigprocontract";
 import gigproAbi from "../ABI/GigPro.json";
-import { parseEther } from "ethers";
+import { ethers } from "ethers";
 const AddCard = () => {
   const [freelancerAddress,setFreelancerAddress] = useState();
   const  [amount,setAmount] = useState();
