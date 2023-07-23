@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useContractWrite,useContractRead } from "wagmi";
 import { GigProContract } from "../Constant/gigprocontract";
 import gigproAbi from "../ABI/GigPro.json";
@@ -12,6 +12,8 @@ import { EthereumClient, w3mConnectors, w3mProvider } from '@web3modal/ethereum'
 let account;
 
 const StreamCard = () => {
+  const [isOpen,setOpen] = useState(false);
+  const [timeInSeconds,setTimeInSeconds] = useState();
   const { address, isConnecting, isDisconnected } = useAccount()
   const { data:myFreelancers, isError, isLoading } = useContractRead({
     address: GigProContract,
@@ -30,6 +32,7 @@ const StreamCard = () => {
     { address: '0x8878787874827487vdfjdfywetf6f23276r', amount: '4000' },
     { address: '0x8878787874827487vdfjdfywetf6f23276r', amount: '4000' },
   ];
+ 
 
    async function createNewFlow(recipient, flowRate) {
       const provider = new ethers.providers.Web3Provider(window.ethereum);
@@ -50,12 +53,12 @@ const StreamCard = () => {
     
       console.log("the signer is",signer);
       console.log(await superSigner.getAddress());
-      const daix = await sf.loadSuperToken("CELOx");
+      const celox = await sf.loadSuperToken("CELOx");
     
-      console.log(daix);
+      console.log(celox);
     
       try {
-        const createFlowOperation = daix.createFlow({
+        const createFlowOperation = celox.createFlow({
           sender: await superSigner.getAddress(),
           receiver: recipient,
           flowRate: flowRate
@@ -79,6 +82,19 @@ const StreamCard = () => {
         console.error(error);
       }
     }
+    const handleStartStream = async(freeLancerAddress,time_in_seconds)=>{
+      try{
+        if(freeLancerAddress != undefined && time_in_seconds != undefined){
+          await createNewFlow(freeLancerAddress,time_in_seconds);
+          setOpen(false);
+        }else{
+          alert("please provide the time");
+        }
+       
+      }catch(err){
+        console.log("error is", err);
+      }
+    }
 
   return (
     <>
@@ -100,10 +116,26 @@ const StreamCard = () => {
             <button className="inline-flex p-2 justify-center items-center w-100 rounded-full text-red-500">
               End Stream
             </button>
-            <button onClick={()=>{createNewFlow(employee.userAddress,1)}} className="inline-flex p-2 justify-center items-center w-100 rounded-full text-green-400">
+            {isOpen?  <div className="flex gap-8 text-white">
+        
+        <input
+          type="number"
+          placeholder="Time in seconds"
+           value={timeInSeconds}
+           onChange={(e)=>{setTimeInSeconds(e.target.value)}}
+           className="text-black text-center"
+        />
+        <div className="button-container flex gap-8">
+          <button className="text-green-400" onClick={()=>{handleStartStream(employee.userAddress,timeInSeconds)}}>Start</button>
+          <button className="text-red-400" onClick={()=>{setOpen(false)}} >Cancel</button>
+        </div>
+      </div>: <button  onClick={()=>{setOpen(true)}} className="inline-flex p-2 justify-center items-center w-100 rounded-full text-green-400">
               Start Stream
-            </button>
+            </button>}
+
+           
           </div>
+         
         </div>
       ))}
     </>
