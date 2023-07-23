@@ -8,6 +8,7 @@ import { useAccount } from 'wagmi'
 
 const MyFreelancerCard = () => {
   const [freelancers,setFreeLancers] = useState([]);
+  const [freeLancerAddress,setFreelancerAddress] = useState();
   const { address, isConnecting, isDisconnected } = useAccount()
   const { data:myFreelancers, isError, isLoading } = useContractRead({
     address: GigProContract,
@@ -17,6 +18,31 @@ const MyFreelancerCard = () => {
   })
   console.log("addressis:,",myFreelancers);
 
+  const {writeAsync:removeFreeLancer} = useContractWrite({
+    address: GigProContract,
+    abi:gigproAbi,
+    functionName:"removeFreeLancer",
+    args:[freeLancerAddress,address]
+  })
+const removeFreeeLancer = async(freeaddress)=>{
+  //setFreelancerAddress(freeaddress);
+  console.log("the free",freeaddress);
+  try{
+
+    
+     
+      if(freeLancerAddress != undefined){
+        await removeFreeLancer();
+      }
+      else{
+        console.log("the address is not set");
+      }
+    
+
+  }catch(err){
+    console.log("err",err);
+  }
+}
   const employess = [
     { address: '0x8878787874827487vdfjdfywetf6f23276r', amount: '4000' },
     { address: '0x8878787874827487vdfjdfywetf6f23276r', amount: '4000' },
@@ -46,7 +72,7 @@ const MyFreelancerCard = () => {
           </div>
           <div className="flex justify-between items-center text-black">
           
-            <button className="inline-flex p-2 justify-center items-center w-100 rounded-full text-red-500">
+            <button onClick={()=>{removeFreeeLancer(employee.userAddress)}} className="inline-flex p-2 justify-center items-center w-100 rounded-full text-red-500">
               End Contract
             </button>
             
