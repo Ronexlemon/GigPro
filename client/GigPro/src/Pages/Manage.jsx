@@ -5,7 +5,7 @@ import ManageCard from "../components/manageCard";
 import Navbar from "../components/navBar";
 const Manage = ()=>{
     return(
-        <div className="min-h-full h-screen w-full bg-black fixed ">
+        <div className="min-h-full h-screen w-full bg-black overflow-y-auto ">
 <Navbar/>
             <div className="h-full w-full flex text-white gap-10">
                 

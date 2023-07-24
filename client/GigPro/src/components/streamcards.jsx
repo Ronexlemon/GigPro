@@ -213,6 +213,9 @@ async function endStreamFlow(recipient) {
             <button onClick={()=>{handleEndStream(employee.userAddress)}} className="inline-flex p-2 justify-center items-center w-100 rounded-full text-red-500">
               End Stream
             </button>
+            <button onClick={()=>{handleEndStream(employee.userAddress)}} className="inline-flex p-2 justify-center items-center w-100 rounded-full text-yellow-500">
+              Update Stream
+            </button>
             {cardIndex == index?  <div className="flex gap-8 text-white">
         
         <input
