@@ -12,6 +12,7 @@ import { EthereumClient, w3mConnectors, w3mProvider } from '@web3modal/ethereum'
 import { Web3Modal } from '@web3modal/react'
 import { configureChains, createConfig, WagmiConfig } from 'wagmi'
 import { celoAlfajores } from 'wagmi/chains'
+import { CreateFlow } from './Pages/Create'
 
 const chains = [celoAlfajores]
 const projectId = '7fc612a85a16989568e15f7c57429531'
@@ -37,6 +38,7 @@ function App() {
         <Route path='manage' element={<Manage/>}/>
         <Route path='stream' element={<Stream/>}/>
         <Route path='myFreelancer' element={<MyFreeLancers/>}/>
+        <Route path='create' element={<CreateFlow/>}/>
       </Routes>
       </BrowserRouter>
       </WagmiConfig>
