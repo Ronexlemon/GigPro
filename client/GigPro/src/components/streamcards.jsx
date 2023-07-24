@@ -12,6 +12,7 @@ import { EthereumClient, w3mConnectors, w3mProvider } from '@web3modal/ethereum'
 let account;
 
 const StreamCard = () => {
+  const [cardIndex,setCardIndex] = useState(null);
   const [flowRate, setFlowRate] = useState("");
   const [flowRateDisplay, setFlowRateDisplay] = useState("");
   const [isOpen,setOpen] = useState(false);
@@ -142,7 +143,7 @@ const StreamCard = () => {
             <button className="inline-flex p-2 justify-center items-center w-100 rounded-full text-red-500">
               End Stream
             </button>
-            {isOpen?  <div className="flex gap-8 text-white">
+            {cardIndex == index?  <div className="flex gap-8 text-white">
         
         <input
           type="number"
@@ -155,9 +156,9 @@ const StreamCard = () => {
         <h4>{flowRateDisplay !== " " ? flowRateDisplay : 0} Celox/month
           </h4>
           <button className="text-green-400" onClick={()=>{handleStartStream(employee.userAddress,weiPerSeconds)}}>Start</button>
-          <button className="text-red-400" onClick={()=>{setOpen(false)}} >Cancel</button>
+          <button className="text-red-400" onClick={()=>{setCardIndex(null)}} >Cancel</button>
         </div>
-      </div>: <button  onClick={()=>{setOpen(true)}} className="inline-flex p-2 justify-center items-center w-100 rounded-full text-green-400">
+      </div>: <button  onClick={()=>{setCardIndex(index)}} className="inline-flex p-2 justify-center items-center w-100 rounded-full text-green-400">
               Start Stream
             </button>}
 
