@@ -205,7 +205,7 @@ async function endStreamFlow(recipient) {
             
           </div>
           <div className="flex  justify-stretch w-full gap-4 items-center">
-            <h3>Amount in Cusd: </h3>
+            <h3>Amount in CELO: </h3>
             <span className="text-orange-400">{Number(employee.payAmount)}</span>
             
           </div>
@@ -220,7 +220,7 @@ async function endStreamFlow(recipient) {
         
         <input
           type="number"
-          placeholder="Wei/seconds"
+          placeholder="Wei"
           value={flowRate}
           onChange={handleFlowRateChange}
            className="text-black text-center"

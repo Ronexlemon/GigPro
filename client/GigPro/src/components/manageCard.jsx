@@ -37,7 +37,7 @@ const ManageCard = () => {
             
           </div>
           <div className="flex  justify-stretch w-full gap-4 items-center">
-            <h3>Amount in Cusd: </h3>
+            <h3>Amount in CELO: </h3>
             <span className="text-orange-400">{Number(employee.payAmount)}</span>
             
           </div>
