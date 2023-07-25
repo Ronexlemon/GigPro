@@ -13,6 +13,7 @@ let account;
 
 const StreamCard = () => {
   const [cardIndex,setCardIndex] = useState(null);
+  const [updateCardIndex,setUpdateCardIndex] = useState(null);
   const [flowRate, setFlowRate] = useState("");
   const [flowRateDisplay, setFlowRateDisplay] = useState("");
   const [isOpen,setOpen] = useState(false);
@@ -230,7 +231,7 @@ async function updateStreamFlow(recipient) {
       }
     }
     //handle update stream
-    const handleUpdateStream = async(freeLancerAddress,wei_per_seconds)=>{
+    const handleUpdateStream = async(freeLancerAddress)=>{
       try{
         if(freeLancerAddress != undefined ){
           
@@ -252,7 +253,7 @@ async function updateStreamFlow(recipient) {
           await endStreamFlow(freeLancerAddress);
           //setOpen(false);
         }else{
-          alert("please provide the time");
+          alert("please provide the address");
         }
        
       }catch(err){
@@ -281,10 +282,30 @@ async function updateStreamFlow(recipient) {
             <button onClick={()=>{handleEndStream(employee.userAddress)}} className="inline-flex p-2 justify-center items-center w-50 h-5 rounded-full text-sm  text-red-400">
               End Stream
             </button>
-            <button onClick={()=>{handleEndStream(employee.userAddress)}} className="inline-flex p-2 justify-center items-center w-50 h-5 rounded-full text-sm text-teal-900">
+            {updateCardIndex == index?  <div className="flex gap-8 ">
+          
+        
+        <input
+          type="number"
+          placeholder="Wei"
+          value={flowRate}
+          onChange={handleFlowRateChange}
+           className="text-black text-center"
+        />
+        <div className="button-container flex gap-8 text-sm">
+        <h4>{flowRateDisplay !== " " ? flowRateDisplay : 0} Celox/month
+          </h4>
+          <button className="text-green-200 text-sm" onClick={()=>{handleUpdateStream(employee.userAddress)}}>update</button>
+          <button className="text-red-200 text-sm" onClick={()=>{setUpdateCardIndex(null)}} >Cancel</button>
+        </div>
+      </div>: <button  onClick={()=>{setUpdateCardIndex(index)}} className="inline-flex p-2 justify-center items-center w-50 h-5 rounded-full text-sm text-teal-900">
               Update Stream
-            </button>
+            </button>}
+
             {cardIndex == index?  <div className="flex gap-8 ">
+            {/* <button onClick={()=>{handleUpdateStream(employee.userAddress)}} className="inline-flex p-2 justify-center items-center w-50 h-5 rounded-full text-sm text-teal-900">
+              Update Stream
+            </button> */}
         
         <input
           type="number"
