@@ -196,27 +196,27 @@ async function endStreamFlow(recipient) {
   return (
     <>
       {myFreelancers?.map((employee, index) => (
-        <div key={index} className="flex h-full flex-col gap-4 text-white mb-4 border-b border-red-300">
+        <div key={index} className="flex h-full flex-col gap-4 text-gray-400 mb-4 border-b border-red-300">
           <div className="flex justify-evenly w-full gap-4 items-center">
             <h3>FreeLancer Address: </h3>
-            <span className="text-orange-400">
+            <span className="">
             {employee.userAddress}
             </span>
             
           </div>
           <div className="flex  justify-stretch w-full gap-4 items-center">
             <h3>Amount in CELO: </h3>
-            <span className="text-orange-400">{Number(employee.payAmount)}</span>
+            <span className="">{Number(employee.payAmount)}</span>
             
           </div>
-          <div className="flex justify-between items-center text-black">
-            <button onClick={()=>{handleEndStream(employee.userAddress)}} className="inline-flex p-2 justify-center items-center w-100 rounded-full text-red-500">
+          <div className="flex justify-between items-center ">
+            <button onClick={()=>{handleEndStream(employee.userAddress)}} className="inline-flex p-2 justify-center items-center w-50 h-5 rounded-full text-sm  text-red-400">
               End Stream
             </button>
-            <button onClick={()=>{handleEndStream(employee.userAddress)}} className="inline-flex p-2 justify-center items-center w-100 rounded-full text-yellow-500">
+            <button onClick={()=>{handleEndStream(employee.userAddress)}} className="inline-flex p-2 justify-center items-center w-50 h-5 rounded-full text-sm text-teal-900">
               Update Stream
             </button>
-            {cardIndex == index?  <div className="flex gap-8 text-white">
+            {cardIndex == index?  <div className="flex gap-8 ">
         
         <input
           type="number"
@@ -225,13 +225,13 @@ async function endStreamFlow(recipient) {
           onChange={handleFlowRateChange}
            className="text-black text-center"
         />
-        <div className="button-container flex gap-8">
+        <div className="button-container flex gap-8 text-sm">
         <h4>{flowRateDisplay !== " " ? flowRateDisplay : 0} Celox/month
           </h4>
-          <button className="text-green-400" onClick={()=>{handleStartStream(employee.userAddress,weiPerSeconds)}}>Start</button>
-          <button className="text-red-400" onClick={()=>{setCardIndex(null)}} >Cancel</button>
+          <button className="text-green-200 text-sm" onClick={()=>{handleStartStream(employee.userAddress,weiPerSeconds)}}>Start</button>
+          <button className="text-red-200 text-sm" onClick={()=>{setCardIndex(null)}} >Cancel</button>
         </div>
-      </div>: <button  onClick={()=>{setCardIndex(index)}} className="inline-flex p-2 justify-center items-center w-100 rounded-full text-green-400">
+      </div>: <button  onClick={()=>{setCardIndex(index)}} className="inline-flex p-2 justify-center items-center w-50 h-5 rounded-full text-sm  text-green-600">
               Start Stream
             </button>}
 

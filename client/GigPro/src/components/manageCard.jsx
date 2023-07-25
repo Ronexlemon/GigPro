@@ -28,17 +28,17 @@ const ManageCard = () => {
   return (
     <>
       {myFreelancers.map((employee, index) => (
-        <div key={index} className="flex h-full flex-col gap-4 text-white mb-4 border-b border-red-300">
+        <div key={index} className="flex h-full flex-col gap-4 text-gray-400 mb-4 border-b border-red-300">
           <div className="flex justify-evenly w-full gap-4 items-center">
             <h3>FreeLancer Address: </h3>
-            <span className="text-orange-400">
+            <span className="">
             {employee.userAddress}
             </span>
             
           </div>
           <div className="flex  justify-stretch w-full gap-4 items-center">
             <h3>Amount in CELO: </h3>
-            <span className="text-orange-400">{Number(employee.payAmount)}</span>
+            <span className="">{Number(employee.payAmount)}</span>
             
           </div>
           <div className="flex justify-between items-center text-black">
