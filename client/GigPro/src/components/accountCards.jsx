@@ -29,7 +29,7 @@ const AccountCards = () => {
   console.log(freelancerAddress);
   return (
     <div className="flex justify-between gap-16 w-full h-full">
-  <div className="w-full h-full flex flex-col justify-between rounded-xl bg-gray-400">
+  <div className="w-full h-full flex flex-col justify-between rounded-xl bg-gray-800">
     <h2 className="text-center text-xl font-semibold mb-5">Celo to Celox</h2>
     <div className="flex h-full flex-col gap-20 pt-5">
      
@@ -44,7 +44,7 @@ const AccountCards = () => {
     </div>
   </div>
 
-  <div className="w-full h-full flex flex-col justify-between rounded-xl bg-gray-400">
+  <div className="w-full h-full flex flex-col justify-between rounded-xl bg-gray-800">
     <h2 className="text-center text-xl font-semibold mb-5">Celox to Celo</h2>
     <div className="flex h-full flex-col gap-20 pt-5">
      

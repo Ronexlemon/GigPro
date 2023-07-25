@@ -6,7 +6,7 @@ import AccountCards from "../components/accountCards";
 import Navbar from "../components/navBar";
 const Account = ()=>{
     return(
-        <div className="min-h-full h-screen w-full bg-black fixed ">
+        <div className="min-h-full h-screen w-full bg-gray-900 fixed ">
 <Navbar/>
             <div className="h-full w-full flex text-white gap-10">
                 

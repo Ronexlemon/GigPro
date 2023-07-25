@@ -5,7 +5,7 @@ import StreamCard from "../components/streamcards";
 import Navbar from "../components/navBar";
 const Stream = ()=>{
     return(
-        <div className="min-h-full h-screen w-full bg-black overflow-y-auto ">
+        <div className="min-h-full h-screen w-full bg-gray-900 overflow-y-auto ">
 <Navbar/>
             <div className="h-full w-full flex text-white gap-10">
                 

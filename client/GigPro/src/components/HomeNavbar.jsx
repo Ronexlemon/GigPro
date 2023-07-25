@@ -5,7 +5,7 @@ const HomeNavbar = ()=>{
     const navigate = useNavigate();
 
     return(
-        <div className="h-10 w-full flex justify-between items-center text-white p-10">
+        <div className="h-10 w-full flex justify-between items-center text-white p-10 fixed">
 <div>
 <h2>GigPro</h2>
 </div>

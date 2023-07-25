@@ -2,23 +2,73 @@ import React from "react";
 import HomeNavbar from "../components/HomeNavbar";
 import SideBar from "../components/sideBar";
 
-const Home =()=>{
-    return(
-        <div className="min-h-full h-screen w-full bg-black  fixed">
-            <HomeNavbar/>
-            
-            <div className="flex justify-center items-center  h-full w-full   ">
+const Home = () => {
+  return (
+    <div className="min-h-full h-screen w-full bg-gray-900  ">
+      <HomeNavbar />
 
-                <div className="h-1/2 w-1/2 border-r-8 bg-gray-200 text-red-500">
-                    <h1>dnbfjnbjgfnbjgn</h1>
-
-                </div>
-
-            </div>
-
+      <div className="flex justify-center items-center h-full w-full">
+        <div className="h-1/2 w-1/2 border-r-8 bg-gray-200 text-red-500">
+          <h1 className="text-5xl font-bold text-center mb-4">
+            Welcome to Our Website!
+          </h1>
+          <p className="text-xl text-center mb-8">
+            We offer the best services for your needs.
+          </p>
+          <div className="flex justify-center">
+            <button className="px-8 py-3 bg-red-500 text-white font-semibold rounded-md shadow-md hover:bg-red-600">
+              Get Started
+            </button>
+          </div>
         </div>
+      </div>
 
-    )
-}
+      {/* Additional Sections */}
+      <div className="flex flex-col items-center bg-gray-900 text-white py-12">
+        <h2 className="text-3xl font-semibold mb-6">Our Services</h2>
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+          {/* Service Card 1 */}
+          <div className="bg-gray-800 p-6 rounded-lg shadow-lg">
+            <h3 className="text-xl font-semibold mb-3">Service 1</h3>
+            <p className="text-gray-400">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit
+              amet ullamcorper ipsum.
+            </p>
+          </div>
+
+          {/* Service Card 2 */}
+          <div className="bg-gray-800 p-6 rounded-lg shadow-lg">
+            <h3 className="text-xl font-semibold mb-3">Service 2</h3>
+            <p className="text-gray-400">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit
+              amet ullamcorper ipsum.
+            </p>
+          </div>
+
+          {/* Service Card 3 */}
+          <div className="bg-gray-800 p-6 rounded-lg shadow-lg">
+            <h3 className="text-xl font-semibold mb-3">Service 3</h3>
+            <p className="text-gray-400">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit
+              amet ullamcorper ipsum.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div className="flex justify-center bg-gray-800 text-white py-12">
+        <div className="text-center">
+          <h2 className="text-3xl font-semibold mb-6">About Us</h2>
+          <p className="text-gray-400 max-w-lg mx-auto">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit
+            amet ullamcorper ipsum. Nullam venenatis, felis euismod fringilla
+            ullamcorper, lectus sapien iaculis urna, a pulvinar lacus purus nec
+            elit.
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 export default Home;
