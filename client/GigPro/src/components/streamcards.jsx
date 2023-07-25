@@ -161,6 +161,59 @@ async function endStreamFlow(recipient) {
     console.error(error);
   }
 }
+//updateStream
+async function updateStreamFlow(recipient) {
+  const provider = new ethers.providers.Web3Provider(window.ethereum);
+  await provider.send("eth_requestAccounts", []);
+
+  const signer = provider.getSigner();
+
+  const chainId = await window.ethereum.request({ method: "eth_chainId" });
+  const sf = await Framework.create({
+    chainId: Number(chainId),
+    provider: provider
+  });
+
+  const superSigner = sf.createSigner({ signer: signer });
+
+  console.log(signer);
+  console.log(await superSigner.getAddress());
+  //const daix = await sf.loadSuperToken("MATICx");
+  const daix = await sf.loadSuperToken("CELOx");
+  
+
+  console.log(daix);
+
+  try {
+    if (!provider) {
+      console.log("Provider not initialized yet");
+      return;
+      }
+    const deleteFlowOperation =daix.deleteFlow({
+      sender: await superSigner.getAddress(),
+      receiver: recipient,
+      flowRate:flowRate
+      
+      // userData?: string
+    });
+
+    console.log(deleteFlowOperation);
+    console.log("Creating your stream...");
+
+    const result = await deleteFlowOperation.exec(superSigner);
+    console.log(result);
+
+    console.log(
+      `Congrats - you've just End Stream  a money stream!
+    `
+    );
+  } catch (error) {
+    console.log(
+      "Hmmm, your transaction threw an error. Make sure that this stream does not already exist, and that you've entered a valid Ethereum address!"
+    );
+    console.error(error);
+  }
+}
 //handle new stream
     const handleStartStream = async(freeLancerAddress,wei_per_seconds)=>{
       try{
@@ -168,6 +221,21 @@ async function endStreamFlow(recipient) {
           
           await createNewFlow(freeLancerAddress);
           setOpen(false);
+        }else{
+          alert("please provide the time");
+        }
+       
+      }catch(err){
+        console.log("error is", err);
+      }
+    }
+    //handle update stream
+    const handleUpdateStream = async(freeLancerAddress,wei_per_seconds)=>{
+      try{
+        if(freeLancerAddress != undefined ){
+          
+          await updateStreamFlow(freeLancerAddress);
+         // setOpen(false);
         }else{
           alert("please provide the time");
         }
