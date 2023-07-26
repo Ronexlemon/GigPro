@@ -195,10 +195,10 @@ async function downgradeTokens(amount) {
      
       <div className="flex justify-evenly items-center">
         <h3>CELOx:</h3>
-        <input className="border-b border-black bg-transparent w-40 focus:border-none text-center " type="text" placeholder="4000" onChange={handleApproveAmountChange}/>
+        <input className="border-b border-black bg-transparent w-40 focus:border-none text-center " type="text" placeholder="4000" onChange={handleDowngradeAmountChange}/>
       </div>
       <div className="flex justify-center items-center text-black pl-10 pr-10">
-      <button  className="inline-flex p-2 justify-center items-center w-20 rounded-full bg-red-200">Unwrap</button>
+      <button onClick={()=>{downgradeTokens(downgradeAmount)}}  className="inline-flex p-2 justify-center items-center w-20 rounded-full bg-red-200">Unwrap</button>
         
         
       </div>
