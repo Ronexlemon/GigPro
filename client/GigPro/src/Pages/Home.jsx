@@ -1,8 +1,10 @@
 import React from "react";
 import HomeNavbar from "../components/HomeNavbar";
 import SideBar from "../components/sideBar";
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
+  const navigate = useNavigate();
   return (
     <div className="min-h-full h-screen w-full bg-send ">
       <HomeNavbar />
@@ -16,7 +18,7 @@ const Home = () => {
             We offer the best services for your needs.
           </p>
           <div className="flex justify-center">
-            <button className="px-8 py-3 bg-red-500 text-white font-semibold rounded-md shadow-md hover:bg-red-600">
+            <button onClick={()=>{navigate("/add")}} className="px-8 py-3 bg-green-500 text-white font-semibold rounded-md shadow-md hover:bg-red-600">
               Get Started
             </button>
           </div>
