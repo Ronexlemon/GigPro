@@ -24,7 +24,74 @@ const ManageCard = () => {
     { address: '0x8878787874827487vdfjdfywetf6f23276r', amount: '4000' },
     { address: '0x8878787874827487vdfjdfywetf6f23276r', amount: '4000' },
   ];
+//end stream
+async function endStreamFlow(recipient) {
+  const provider = new ethers.providers.Web3Provider(window.ethereum);
+  await provider.send("eth_requestAccounts", []);
 
+  const signer = provider.getSigner();
+
+  const chainId = await window.ethereum.request({ method: "eth_chainId" });
+  const sf = await Framework.create({
+    chainId: Number(chainId),
+    provider: provider
+  });
+
+  const superSigner = sf.createSigner({ signer: signer });
+
+  console.log(signer);
+  console.log(await superSigner.getAddress());
+  //const daix = await sf.loadSuperToken("MATICx");
+  const daix = await sf.loadSuperToken("CELOx");
+  
+
+  console.log(daix);
+
+  try {
+    if (!provider) {
+      console.log("Provider not initialized yet");
+      return;
+      }
+    const deleteFlowOperation =daix.deleteFlow({
+      sender: await superSigner.getAddress(),
+      receiver: recipient,
+      
+      // userData?: string
+    });
+
+    console.log(deleteFlowOperation);
+    console.log("Creating your stream...");
+
+    const result = await deleteFlowOperation.exec(superSigner);
+    console.log(result);
+
+    console.log(
+      `Congrats - you've just End Stream  a money stream!
+    `
+    );
+  } catch (error) {
+    console.log(
+      "Hmmm, your transaction threw an error. Make sure that this stream does not already exist, and that you've entered a valid Ethereum address!"
+    );
+    console.error(error);
+  }
+}
+//handle delete stream
+const handleEndStream = async(freeLancerAddress)=>{
+  try{
+    if(freeLancerAddress != undefined ){
+      
+      await endStreamFlow(freeLancerAddress);
+      
+      //setOpen(false);
+    }else{
+      alert("please provide the address");
+    }
+   
+  }catch(err){
+    console.log("error is", err);
+  }
+}
   return (
     <>
       {myFreelancers.map((employee, index) => (
@@ -42,7 +109,7 @@ const ManageCard = () => {
             
           </div>
           <div className="flex justify-between items-center text-black">
-            <button className="inline-flex p-2 justify-start items-center w-100 rounded-full text-red-500">
+            <button onClick={()=>{handleEndStream(employee.userAddress)}}  className="inline-flex p-2 justify-start items-center w-100 rounded-full text-red-500">
               Revoke
             </button>
             

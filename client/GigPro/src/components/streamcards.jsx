@@ -279,9 +279,9 @@ async function updateStreamFlow(recipient) {
             
           </div>
           <div className="flex justify-between items-center ">
-            <button onClick={()=>{handleEndStream(employee.userAddress)}} className="inline-flex p-2 justify-center items-center w-50 h-5 rounded-full text-sm  text-red-400">
+            {/* <button onClick={()=>{handleEndStream(employee.userAddress)}} className="inline-flex p-2 justify-center items-center w-50 h-5 rounded-full text-sm  text-red-400">
               End Stream
-            </button>
+            </button> */}
             {updateCardIndex == index?  <div className="flex gap-8 ">
           
         
