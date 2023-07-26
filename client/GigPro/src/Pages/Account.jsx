@@ -4,7 +4,10 @@ import HomeNavbar from "../components/HomeNavbar";
 import AddCard from "../components/addCard";
 import AccountCards from "../components/accountCards";
 import Navbar from "../components/navBar";
+import { ethers } from "ethers";
+import {Framework} from "@superfluid-finance/sdk-core";
 const Account = ()=>{
+  
     return(
         <div className="min-h-full h-screen w-full bg-gray-900 fixed ">
 <Navbar/>
