@@ -29,28 +29,25 @@ const Home = () => {
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
           {/* Service Card 1 */}
           <div className="bg-gray-800 p-6 rounded-lg shadow-lg">
-            <h3 className="text-xl font-semibold mb-3">Service 1</h3>
+            <h3 className="text-xl font-semibold mb-3">Money Streaming </h3>
             <p className="text-gray-400">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit
-              amet ullamcorper ipsum.
+            Automatically send recurring payments in CELOx to a chosen recipient based on specified conditions.
             </p>
           </div>
 
           {/* Service Card 2 */}
           <div className="bg-gray-800 p-6 rounded-lg shadow-lg">
-            <h3 className="text-xl font-semibold mb-3">Service 2</h3>
+            <h3 className="text-xl font-semibold mb-3">Freelancer Management </h3>
             <p className="text-gray-400">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit
-              amet ullamcorper ipsum.
+            Oversee freelancers for projects, with tools for communication, contract management, and secure payments.
             </p>
           </div>
 
           {/* Service Card 3 */}
           <div className="bg-gray-800 p-6 rounded-lg shadow-lg">
-            <h3 className="text-xl font-semibold mb-3">Service 3</h3>
+            <h3 className="text-xl font-semibold mb-3">Pay-On-Time</h3>
             <p className="text-gray-400">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit
-              amet ullamcorper ipsum.
+            Ensure timely payments, fostering trust and responsible payment behavior in transactions.
             </p>
           </div>
         </div>
@@ -60,10 +57,7 @@ const Home = () => {
         <div className="text-center">
           <h2 className="text-3xl font-semibold mb-6">About Us</h2>
           <p className="text-gray-400 max-w-lg mx-auto">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit
-            amet ullamcorper ipsum. Nullam venenatis, felis euismod fringilla
-            ullamcorper, lectus sapien iaculis urna, a pulvinar lacus purus nec
-            elit.
+          A revolutionary DApp offering seamless money streaming for Celox, efficient freelancer management, and timely payments. Empowering individuals and businesses with blockchain and cryptocurrencies, MoneyFlow ensures secure and frictionless financial interactions. 
           </p>
         </div>
       </div>
