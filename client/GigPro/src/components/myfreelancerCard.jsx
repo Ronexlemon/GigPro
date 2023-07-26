@@ -56,7 +56,7 @@ const removeFreeeLancer = async()=>{
  
   return (
     <>
-      {myFreelancers.map((employee, index) => (
+      {myFreelancers?.map((employee, index) => (
         <div key={index} className="flex h-full flex-col gap-2 text-gray-400 mb-0 border-b border-red-300">
           <div className="flex justify-evenly w-full gap-4 items-center">
             <h3>FreeLancer Address: </h3>

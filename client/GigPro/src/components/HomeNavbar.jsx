@@ -9,9 +9,10 @@ const HomeNavbar = ()=>{
 <div>
 <h2>GigPro</h2>
 </div>
-<button onClick={()=>{navigate("/add")}} className=" justify-center bg-gray-300 h-8 rounded gap-10  text-sm text-orange-400">
-    Manage
-</button>
+
+<button onClick={()=>{navigate("/add")}} className="px-8 py-3 bg-red-500 text-white font-semibold rounded-md shadow-md hover:bg-red-600">
+              Get Started
+            </button>
         </div>
 
     )

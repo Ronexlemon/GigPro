@@ -4,13 +4,13 @@ import SideBar from "../components/sideBar";
 
 const Home = () => {
   return (
-    <div className="min-h-full h-screen w-full bg-gray-900  ">
+    <div className="min-h-full h-screen w-full bg-send ">
       <HomeNavbar />
 
       <div className="flex justify-center items-center h-full w-full">
-        <div className="h-1/2 w-1/2 border-r-8 bg-gray-200 text-red-500">
-          <h1 className="text-5xl font-bold text-center mb-4">
-            Welcome to Our Website!
+        <div className="h-1/2 w-1/2  text-green-100">
+          <h1 className="text-5xl font-bold text-center mb-4 text-green-100">
+            Welcome to GIGPRO
           </h1>
           <p className="text-xl text-center mb-8">
             We offer the best services for your needs.
