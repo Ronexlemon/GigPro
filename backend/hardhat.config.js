@@ -8,6 +8,12 @@ module.exports = {
     alfajores:{
       url:"https://alfajores-forno.celo-testnet.org",
       accounts:[KEY],
-    }
+    },
+    celo: {
+      url: "https://forno.celo.org",
+      accounts: [KEY],
+      },
+      
+    
   }
 };
