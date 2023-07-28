@@ -16,7 +16,7 @@ import { celo } from 'wagmi/chains'
 import { CreateFlow } from './Pages/Create'
 
 
-const chains = [celoAlfajores]
+const chains = [celo]
 const projectId = '7fc612a85a16989568e15f7c57429531'
 
 const { publicClient } = configureChains(chains, [w3mProvider({ projectId })])
