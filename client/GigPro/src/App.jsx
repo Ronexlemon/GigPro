@@ -12,7 +12,7 @@ import Account from './Pages/Account';
 import { EthereumClient, w3mConnectors, w3mProvider } from '@web3modal/ethereum'
 import { Web3Modal } from '@web3modal/react'
 import { configureChains, createConfig, WagmiConfig } from 'wagmi'
-import { celoAlfajores } from 'wagmi/chains'
+import { celo } from 'wagmi/chains'
 import { CreateFlow } from './Pages/Create'
 
 
